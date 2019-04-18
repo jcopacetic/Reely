@@ -122,6 +122,39 @@ body {
   }
 }
 
+/* margins */
+.m-top_20 {
+  margin-top: 2rem;
+}
+
+.m-top_40 {
+  margin-top: 4rem;
+}
+
+.m-top_60 {
+  margin-top: 6rem;
+}
+
+.m-top_80 {
+  margin-top: 8rem;
+}
+
+.m-bot_20 {
+  margin-bottom: 2rem;
+}
+
+.m-bot_40 {
+  margin-bottom: 4rem;
+}
+
+.m-bot_60 {
+  margin-bottom: 6rem;
+}
+
+.m-bot_80 {
+  margin-bottom: 8rem;
+}
+
 /* Absolute Position Quick Center */
 .ab-top_50 {
   top: 50%;
