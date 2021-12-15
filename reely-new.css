@@ -1,0 +1,610 @@
+/* Fonts */
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+{%- set font_types = [['black', 800, 'normal'], ['blackitalic', 800, 'italic'], ['bold', 700, 'normal'], ['bolditalic', 700, 'italic'], ['medium', 500, 'normal'], ['mediumitalic', 500, 'italic'], ['book', 400, 'normal'], ['bookitalic', 400, 'italic']] -%}
+
+{%- for ft in font_types %}	
+@font-face {
+  font-family: "LL Circular";
+  src: url("https://assets.affinity.co/fonts/circular/lineto-circular-{{ft[0]}}.eot");
+  src: url("https://assets.affinity.co/fonts/circular/lineto-circular-{{ft[0]}}.eot?#iefix") format("embedded-opentype"), 
+       url("https://assets.affinity.co/fonts/circular/lineto-circular-{{ft[0]}}.woff2") format("woff2"), 
+       url("https://assets.affinity.co/fonts/circular/lineto-circular-{{ft[0]}}.woff") format("woff");
+  font-weight: {{ft[1]}};
+  font-style: {{ft[2]}};
+}
+{% endfor -%}
+
+
+/** REELY SANITIZER **/
+/*-- cleans all elements within reely container, to avoid css interference --
+ *-- Derived from HTML Doctor CSS Reset (https://cssreset.com)             --*/
+html {
+  scroll-behavior: smooth;
+}
+
+.ry {
+    top:0;
+}
+
+:target:before {
+content:"";
+display:block;
+height:150px; /* fixed header height*/
+margin:-150px 0 0; /* negative fixed header height */
+}
+
+footer.ry,
+.ry footer,
+header.ry,
+.ry header,
+section.ry,
+.ry section,
+.ry div,
+.ry span,
+.ry object,
+.ry iframe,
+.ry h1,
+.ry h2,
+.ry h3,
+.ry h4,
+.ry h5,
+.ry h6,
+.ry p,
+.ry blockquote,
+.ry pre,
+.ry abbr,
+.ry address,
+.ry cite,
+.ry code,
+.ry del,
+.ry dfn,
+.ry em,
+.ry img,
+.ry ins,
+.ry kbd,
+.ry q,
+.ry samp,
+.ry small,
+.ry strong,
+.ry sub,
+.ry sup,
+.ry var,
+.ry b,
+.ry i,
+.ry dl,
+.ry dt,
+.ry dd,
+.ry ol,
+.ry ul,
+.ry li,
+.ry fieldset,
+.ry form,
+.ry label,
+.ry legend,
+.ry table,
+.ry caption,
+.ry tbody,
+.ry tfoot,
+.ry thead,
+.ry tr,
+.ry th,
+.ry td,
+.ry article,
+.ry aside,
+.ry canvas,
+.ry details,
+.ry figcaption,
+.ry figure,
+.ry hgroup,
+.ry menu,
+.ry nav,
+.ry summary,
+.ry time,
+.ry mark,
+.ry audio,
+.ry video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+footer.ry,
+.ry footer,
+header.ry,
+.ry header,
+section.ry,
+.ry section,
+.ry article,
+.ry aside,
+.ry details,
+.ry figcaption,
+.ry figure,
+.ry hgroup,
+.ry menu,
+.ry nav,
+.ry div {
+  display: block;
+  box-sizing: border-box;
+}
+
+.ry nav ul {
+  list-style: none;
+}
+
+.ry blockquote,
+.ry q {
+  quotes: none;
+}
+
+.ry blockquote:before,
+.ry blockquote:after,
+.ry q:before,
+.ry q:after {
+  content: "";
+  content: none;
+}
+
+.ry a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+.ry ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+.ry mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.ry del {
+  text-decoration: line-through;
+}
+
+.ry abbr[title],
+.ry dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+.ry table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.ry hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.ry input,
+.ry select {
+  vertical-align: middle;
+}
+
+{# Colors #}
+{%- set color_1 = '#2265F1' %} {# Light Blue #}
+{%- set color_2 = '#4726EA' %} {# Dark Blue #}
+{%- set color_3 = '#3DCE9D' %} {# Off Green #}
+{%- set color_4 = '#0F1C2E' %} {# Blackish #}
+{%- set color_5 = '#0F1C2EA8' %} {# Dark Gray #}
+{%- set color_6 = '#0F1C2E54' %} {# Medium Gray #}
+{%- set color_7 = '#F8F8F8' %} {# Light Gray #}
+{%- set color_8 = '#FFFFFF' %} {# White #}
+
+{%- set color_set = [color_1,color_2,color_3,color_4,color_5,color_6,color_7,color_8] %}
+
+{%- set g_color_1 = '#42B8F5' %} {# Baby Blue #}
+{%- set g_color_2 = '#24F4C8' %} {# Baby Green #}
+
+{%- set g_color_3 = '#2665F1' %} {# Faded green light #}
+{%- set g_color_4 = '#4726EA' %} {# Faded Green Dark #}
+
+{%- set g_color_5 = '#292367' %} {# Purple #}
+{%- set g_color_6 = '#0F1C2E' %} {# Dark Purple #}
+
+{%- set gradient_set = [(g_color_1, g_color_2),(g_color_3, g_color_4),(g_color_5, g_color_6)] %}
+{%- set gradient_directions = ['vertical', 'horizontal', 'radial', 'diagonal'] %}
+
+{# Gradient Macro #}
+{%- macro gradient(start_color, start_percent, stop_color, stop_percent, direction) -%}
+  {%- set d1 = '' -%}
+  {%- set d2 = '' -%}
+  {%- set gradientType = '' -%}
+  {%- set orient = 'linear' -%}
+  {%- if direction == 'vertical' -%}
+    {%- set d1 = 'top' -%}
+    {%- set d2 = 'to bottom' %}
+    {%- set gradientType = '0' -%}
+  {%- elif direction == 'horizontal' -%}
+    {%- set d1 = 'left' %}
+    {%- set d2 = 'to right' %}
+    {%- set gradientType = '1' %}
+  {%- elif direction == 'diagonal'-%}
+    {%- set d1 = '-45deg' %}
+    {%- set d2 = '135deg' %}
+    {%- set gradientType = '1' %}
+  {%- elif direction == 'radial' -%}
+    {%- set d1 = 'center, ellipse cover' -%}
+    {%- set d2 = 'ellipse at center' -%}
+    {%- set gradientType = '1' -%}
+    {%- set orient = 'radial' -%}
+  {%- endif -%}
+  background: {{ start_color }}; /* Old browsers */
+  background: -moz-{{orient}}-gradient({{ d1 }}, {{ start_color }} {{ start_percent }}%, {{ stop_color }} {{ stop_percent }}%); /* FF3.6-15 */
+  background: -webkit-{{orient}}-gradient({{ d1 }}, {{ start_color }} {{ start_percent }}%, {{ stop_color }} {{ stop_percent }}%); /* Chrome10-25,Safari5.1-6 */
+  background: {{orient}}-gradient({{ d2 }}, {{ start_color }} {{ start_percent }}%, {{ stop_color }} {{ stop_percent }}%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="{{ start_color }}", 
+                                                      endColorstr="{{ stop_color }}", 
+                                                      GradientType={{ gradientType }} ); /* IE6-9 */
+{%- endmacro -%}
+
+/* Background Classes */
+{%- for color in color_set %}
+.ry .bg_{{loop.index}} {
+  background: {{color}};
+}
+{%- endfor %}
+
+/* Background Gradients */
+{%- for direction in gradient_directions %}
+  {%- if direction == 'vertical' %}
+    {%- set path = 'v' %}
+  {%- elif direction == 'horizontal' %}
+    {%- set path = 'h' %}
+  {%- elif direction == 'radial' %}
+    {%- set path = 'r' %}
+  {%- elif direction == 'diagonal' %}
+    {%- set path = 'd' %}
+  {%- endif %}
+
+  {%- for couple in gradient_set %}
+.ry .gradient_{{path}}_{{loop.index}} {
+  {{- gradient(couple[0], 0, couple[1], 100, direction) -}}
+}
+
+  {%- endfor -%}
+{%- endfor -%}
+
+{# Typography Macro #}
+{%- macro typography(color, font_style, font_variant, font_weight, font_size, line_height, font_family, letter_spacing, text_transform) -%}
+  color: {{color}}; font: {{font_style}} {{font_variant}} {{font_weight}} {{font_size}}/{{line_height}} {{font_family}}; letter-spacing: {{letter_spacing}}; text-transform: {{text_transform}};
+{%- endmacro -%}
+
+/* Typograhpy */
+.ry h1, .ry .h1, .ry h2, .ry .h2, .ry h3, .ry .h3, .ry h4, .ry .h4, .ry p {margin: 20px 0;}
+
+.ry h1,.ry .h1 { {{ typography(color_4, 'normal', 'normal', '500', '64px', '76px', '"LL Circular"', '-0.01em;', 'none') }} }
+.ry h2,.ry .h2 { {{ typography(color_4, 'normal', 'normal', '500', '28px', '38px', '"LL Circular"', 'initial', 'none') }} }
+.ry h2.special { {{ typography("#757D8A", 'normal', 'normal', '400', '24px', '34px', '"LL Circular"', 'initial', 'none') }}
+  text-align: center;
+  margin-top: 0;
+}
+.ry h3,.ry .h3 { {{ typography(color_4, 'normal', 'normal', '500', '22px', '32px', '"LL Circular"', 'initial', 'none') }} }
+.ry h4,.ry .h4 { {{ typography(color_4, 'normal', 'normal', '800', '36px', '48px', '"LL Circular"', '-1.5px', 'none') }} }
+
+.ry .p1 { {{ typography(color_4, 'normal', 'normal', '900', '26px', '32px', '"LL Circular"', 'initial', 'none') }} }
+.ry .p2 { {{ typography(color_4, 'normal', 'normal', '500', '22px', '32px', '"LL Circular"', 'initial', 'none') }} }
+.ry .p3 { {{ typography(color_4, 'normal', 'normal', '400', '16px', '31px', '"LL Circular"', '-0.2px', 'none') }} }
+.ry .p4 { text-transform: uppercase; {{ typography(color_4, 'normal', 'normal', '400', '16px', '20px', '"LL Circular"', '-0.2px', 'capitalize') }} }
+.ry p,.ry li,.ry .p5 { {{ typography(color_4, 'normal', 'normal', '400', '20px', '30px', '"LL Circular"', 'initial', 'none') }} }
+
+
+@media screen and (max-width: 768px) {
+  .ry h1,.ry .h1 { {{ typography(color_4, 'normal', 'normal', '500', '44px', '56px', '"LL Circular"', '-0.01em;', 'none') }} }
+  .ry h2,.ry .h2 { {{ typography(color_4, 'normal', 'normal', '500', '28px', '38px', '"LL Circular"', 'initial', 'none') }} }
+  .ry h3,.ry .h3 { {{ typography(color_4, 'normal', 'normal', '500', '22px', '32px', '"LL Circular"', 'initial', 'none') }} }
+  .ry h4,.ry .h4 { {{ typography(color_4, 'normal', 'normal', '900', '30px', '34px', '"LL Circular"', 'inital', 'none') }} }
+
+  .ry .p1 { {{ typography(color_4, 'normal', 'normal', '900', '22px', '32px', '"LL Circular"', '-0.01em', 'none') }} }
+  .ry .p2 { {{ typography(color_4, 'normal', 'normal', '500', '20px', '32px', '"LL Circular"', 'initial', 'none') }} }
+  .ry .p3 { {{ typography(color_4, 'normal', 'normal', '400', '16px', '20px', '"LL Circular"', 'initial', 'none') }} }
+  .ry .p4 { text-transform: uppercase; {{ typography(color_4, 'normal', 'normal', '400', '14px', '18px', '"LL Circular"', 'initial', 'capitalize') }} }
+  .ry p,.ry li,.ry .p5 { {{ typography(color_4, 'normal', 'normal', '400', '22px', '32px', '"LL Circular"', 'initial', 'none') }} }
+}
+
+/* Buttons */
+.ry .btn { 
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  -webkit-transition: .2s ease all;
+  transition: .2s ease all;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  white-space: nowrap;
+  {{ typography(color_4, 'normal', 'normal', '500', '22px', '22px', '"LL Circular"', 'initial', 'none') }} 
+}
+
+.ry .btn:hover {
+  -webkit-transition: .2s ease all;
+  transition: .2s ease all;
+/*   transform: scale(1.02);
+  -webkit-transform: scale(1.02); */
+}
+
+.ry .btn:focus {
+  -webkit-transition: .2s ease all;
+  transition: .2s ease all;
+/*   transform: scale(1);
+  -webkit-transform: scale(1); */
+}
+
+{# Button Macro #}
+{%- macro button(color, background, border) %}
+  color: {{color}};
+  background: {{background}};
+  border: 2px solid {{border}};
+  border-radius: 38.2894px;
+  padding: 18px 25px;
+{% endmacro %}
+
+.ry .btn.btn-primary { {{ button(color_8,color_1,color_1) }} }
+.ry .btn.btn-secondary { {{ button(color_1,color_8,color_1) }} }
+.ry .btn.btn-tertiary { {{ button(color_1,color_8,color_1) }} padding-left: 57px;}
+.ry .btn.btn-tertiary:before {
+  content: url('https://www.affinity.co/hubfs/Affinity%202021/cta-arrow.svg');
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  left: 13px;
+  transform: translateY(-52%);
+}
+.ry .btn.btn-more { font-size: 22px; line-height: 32px; color: {{color_1}}; opacity: 1; transition: .3s ease all; -webkit-transition: .3s ease all;}
+.ry .btn.btn-more:after {
+  content: "";
+  background-image: url(https://www.affinity.co/hubfs/Affinity%202021/integration%20logos/cta-more-arrow.svg);
+  background-size: 17px 10px;
+  background-repeat: no-repeat;
+  background-position: 100% center;
+  display: inline-block;
+  margin-left: 10px;
+  height: 10px;
+  width: 17px;
+   transition: .3s ease all; -webkit-transition: .3s ease all;
+  display: inline-block;
+  position: relative;
+}
+
+.ry .btn.btn-primary:hover { opacity: .8; }
+.ry .btn.btn-secondary:hover { opacity: .8; {#{ button(color_1,'rgba(34, 101, 241, 0.05)',color_1) }#} }
+.ry .btn.btn-tertiary:hover { opacity: .8; {#{ button(color_8,'rgba(15, 28, 46, 0.7)','rgba(15, 28, 46, 0.7)') }#}  padding-left: 57px;}
+.ry .btn.btn-more:hover { opacity: .5; transition: .3s ease all; -webkit-transition: .3s ease all;}
+
+.ry .btn.btn-more:hover:after {width: 25px; transition: .3s ease all; -webkit-transition: .3s ease all; }
+
+.ry .btn.btn-primary:focus { {{ button(color_8,'#1B4DB7','#1B4DB7') }} }
+/* .ry .btn.btn-secondary:focus { {#{ button(color_8,color_5,color_5) }#} } */
+.ry .btn.btn-tertiary:focus { {{ button(color_8,color_5,color_5) }}  padding-left: 57px;}
+.ry .btn.btn-more:focus {color: #1B4DB7;}
+
+/* Containers */
+body,html {padding: 0; margin: 0;}
+
+.ry .ry-container {
+  float: none !important;
+  margin: 0 auto;
+  margin-left: auto !important;
+  width: 100% !important;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+{%- set break_xl = 1920 -%}
+{%- set break_lg = 1440 -%}
+{%- set break_md = 1140 -%}
+{%- set break_sm = 768 -%}
+{%- set break_xs = 500 -%}
+
+{%- set breaks = [(break_xl, 'xl'),(break_lg, 'lg'),(break_md, 'md'),(break_sm, 'sm'),(break_xs, 'xs')] -%}
+
+{% for break in breaks -%}
+.ry .ry-container.{{break[1]}} {max-width: {{break[0]}}px;}
+{% endfor %}
+
+/* Grid Sytem */
+.ry .ry-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.ry .ry-grid.row {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.ry .ry-grid.column {
+    -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.ry .ry-grid.hzleft {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.ry .ry-grid.hzcenter {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.ry .ry-grid.hzright {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.ry .ry-grid.hzbetween {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.ry .ry-grid.hzaround {
+    -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+.ry .ry-grid.hzeven {
+    -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.ry .ry-grid.vttop {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+              -ms-grid-row-align: flex-start;
+          align-items: flex-start;  
+}
+.ry .ry-grid.vtcenter {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+              -ms-grid-row-align: center;
+          align-items: center;
+}
+.ry .ry-grid.vtbottom {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+              -ms-grid-row-align: flex-end;
+          align-items: flex-end;
+}
+.ry .ry-grid.vtstretch {
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+              -ms-grid-row-align: stretch;
+          align-items: stretch;
+}
+.ry .ry-grid.vtbase {
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+              -ms-grid-row-align: baseline;
+          align-items: baseline;
+}
+
+.ry .ry-grid.wrap {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.ry .ry-grid.wrapr {
+  -ms-flex-wrap: wrap-reverse;
+      flex-wrap: wrap-reverse;
+}
+
+{% set grid_columns = 12 -%}
+
+{%- for column in range(grid_columns) %}
+{%- set column = column + 1 -%}
+{%- if column < 10 -%}
+{%- set column = "0" + column|string -%}
+{%- endif -%}
+.ry .ry-{{column}} {
+  -webkit-box-flex: {{loop.index}};
+      -ms-flex: {{loop.index}};
+          flex: {{loop.index}};
+  margin-right: 36px;
+}
+.ry .ry-{{column}}:last-of-type {
+  margin-right: 0;
+}
+{% endfor %}
+
+@media screen and (max-width: 767px) {
+  {%- for column in range(grid_columns) %}
+    {%- set column = column + 1 -%}
+    {%- if column < 10 -%}
+      {%- set column = "0" + column|string -%}
+    {%- endif %}
+    .ry .ry-{{column}} {
+      margin-right: 0px;
+    }
+  {% endfor -%}
+}
+
+div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+div#hs-eu-cookie-confirmation.hs-cookie-notification-position-bottom,
+div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner {
+  background: #EBEBEB !important;
+}
+
+div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner {
+  padding: 32px 20px !important;
+}
+
+div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner div#hs-eu-policy-wording,
+div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner div#hs-eu-policy-wording p,
+div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner p,
+div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner {
+    color: #0F1C2E;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner div#hs-eu-cookie-confirmation-button-group {
+  min-width: 265px;
+}
+
+div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner div#hs-eu-cookie-confirmation-button-group a {
+  border-radius: 30px;
+  padding: 12px 30px !important;
+  margin-left: 20px;
+}
+
+div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner div#hs-eu-cookie-confirmation-button-group a#hs-eu-confirmation-button {
+  background: #2665F1 !important;
+  border-color: #2665F1 !important;
+}
+
+div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner div#hs-en-cookie-confirmation-buttons-area {
+  margin-top: 0 !important;
+  margin: 0 0 0 0 !important;
+}
+
+@media screen and (max-width: 568px){
+div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+    -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: -webkit-linear-gradient(red, green);
+  background: linear-gradient(red, green);
+}
+  
+  body div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner {
+    padding: 30px 14px 14px 14px !important;
+    padding-top: 30px !important;
+  }
+}
